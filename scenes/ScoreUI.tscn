@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4dr6alqn8j7i"]
+
+[ext_resource type="FontFile" uid="uid://clgiboimi7lcs" path="res://assets/fonts/VCRosdNEUE.ttf" id="1_ws2iy"]
+[ext_resource type="Script" path="res://scripts/UpdateScore.gd" id="2_x48rr"]
+
+[sub_resource type="FontVariation" id="FontVariation_axb3d"]
+base_font = ExtResource("1_ws2iy")
+
+[node name="ScoreUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1152.0
+offset_bottom = -648.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 15.0
+offset_right = 155.0
+offset_bottom = 79.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = SubResource("FontVariation_axb3d")
+theme_override_font_sizes/normal_font_size = 60
+text = "0"
+script = ExtResource("2_x48rr")

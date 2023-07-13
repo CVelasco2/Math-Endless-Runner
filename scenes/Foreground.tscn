@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://vim3oa1gw6e2"]
+
+[ext_resource type="PackedScene" uid="uid://bwx40sdgpxij1" path="res://scenes/ScrollingBackground.tscn" id="1_s1a1a"]
+[ext_resource type="Shader" path="res://shaders/ScrollingForeground.gdshader" id="2_cxysy"]
+[ext_resource type="Texture2D" uid="uid://ckwbcidnwgjbb" path="res://assets/sprites/background/ground.png" id="3_5vfn1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0vj6m"]
+resource_local_to_scene = true
+shader = ExtResource("2_cxysy")
+shader_parameter/scroll_speed = 0.4
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b3ukm"]
+size = Vector2(1163, 119)
+
+[node name="Foreground" type="Node2D"]
+
+[node name="ScrollingForeground" parent="." instance=ExtResource("1_s1a1a")]
+material = SubResource("ShaderMaterial_0vj6m")
+offset_left = -5.0
+offset_top = 345.0
+offset_right = 3259.0
+offset_bottom = 860.0
+scale = Vector2(0.4, 0.7)
+texture = ExtResource("3_5vfn1")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(577.5, 591.5)
+shape = SubResource("RectangleShape2D_b3ukm")

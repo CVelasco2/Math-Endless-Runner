@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://do617x4ffs5i4"]
+
+[ext_resource type="Script" path="res://scripts/Sounds.gd" id="1_34ucp"]
+[ext_resource type="AudioStream" uid="uid://dp5nnnnrphhji" path="res://assets/fx/hurt2.ogg" id="2_w5i1e"]
+[ext_resource type="AudioStream" uid="uid://cvy7og3bijdsu" path="res://assets/fx/coin5.ogg" id="3_btmbo"]
+[ext_resource type="AudioStream" uid="uid://c52rcvfdtklwp" path="res://assets/fx/jump1.ogg" id="4_w62dc"]
+[ext_resource type="AudioStream" uid="uid://bipg1vuo6ubry" path="res://assets/fx/pickup1.ogg" id="5_gwhjj"]
+
+[node name="Sounds" type="Node2D"]
+script = ExtResource("1_34ucp")
+
+[node name="PlayerHurt" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_w5i1e")
+volume_db = 15.0
+
+[node name="CoinGained" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_btmbo")
+volume_db = 10.0
+
+[node name="PlayerJump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_w62dc")
+volume_db = 10.0
+
+[node name="QuestionCorrect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_gwhjj")
+volume_db = 7.0

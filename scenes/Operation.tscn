@@ -1,0 +1,219 @@
+[gd_scene load_steps=10 format=3 uid="uid://bqwtk3c71hr1l"]
+
+[ext_resource type="PackedScene" uid="uid://bwbagds0bh5qx" path="res://scenes/Background.tscn" id="1_xqscx"]
+[ext_resource type="Script" path="res://scripts/Operation.gd" id="1_y0e7c"]
+[ext_resource type="Theme" uid="uid://bwqcjon1ao3yw" path="res://theme.tres" id="2_04srr"]
+[ext_resource type="PackedScene" uid="uid://vim3oa1gw6e2" path="res://scenes/Foreground.tscn" id="3_7h8l0"]
+[ext_resource type="FontFile" uid="uid://clgiboimi7lcs" path="res://assets/fonts/VCRosdNEUE.ttf" id="3_7m1mg"]
+[ext_resource type="FontFile" uid="uid://ddrd6bxrbodlk" path="res://assets/fonts/Mathis.otf" id="4_21y8m"]
+
+[sub_resource type="FontVariation" id="FontVariation_c02x2"]
+base_font = ExtResource("3_7m1mg")
+
+[sub_resource type="FontVariation" id="FontVariation_vdb2q"]
+base_font = ExtResource("4_21y8m")
+
+[sub_resource type="FontVariation" id="FontVariation_hgwcc"]
+base_font = ExtResource("3_7m1mg")
+
+[node name="Operation" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_right = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y0e7c")
+
+[node name="Background" parent="." instance=ExtResource("1_xqscx")]
+visible = false
+
+[node name="Foreground" parent="." instance=ExtResource("3_7h8l0")]
+visible = false
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 564.0
+offset_top = 327.0
+offset_right = 564.0
+offset_bottom = 327.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 0.996798)
+
+[node name="Panel" type="Panel" parent="CenterContainer"]
+custom_minimum_size = Vector2(900, 600)
+layout_mode = 2
+theme = ExtResource("2_04srr")
+
+[node name="Message" type="Label" parent="CenterContainer/Panel"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+offset_right = 900.0
+offset_bottom = 200.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_c02x2")
+theme_override_font_sizes/font_size = 57
+text = "ANSWER CORRECTLY 
+TO CONTINUE!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Operand" type="Label" parent="CenterContainer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -118.341
+offset_right = 86.0
+offset_bottom = -24.3415
+grow_horizontal = 2
+grow_vertical = 2
+auto_translate = false
+localize_numeral_system = false
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_7m1mg")
+theme_override_font_sizes/font_size = 90
+text = "00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Operand2" type="Label" parent="CenterContainer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -24.0395
+offset_right = 86.0
+offset_bottom = 69.9605
+grow_horizontal = 2
+grow_vertical = 2
+auto_translate = false
+localize_numeral_system = false
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_7m1mg")
+theme_override_font_sizes/font_size = 90
+text = "00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Operator" type="Label" parent="CenterContainer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -114.0
+offset_top = -66.1745
+offset_right = -12.0
+offset_bottom = 27.8255
+grow_horizontal = 2
+grow_vertical = 2
+auto_translate = false
+localize_numeral_system = false
+theme_override_fonts/font = ExtResource("3_7m1mg")
+theme_override_font_sizes/font_size = 90
+text = "+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line" type="Label" parent="CenterContainer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -92.0
+offset_top = 35.15
+offset_right = 103.0
+offset_bottom = 129.15
+grow_horizontal = 2
+grow_vertical = 2
+auto_translate = false
+localize_numeral_system = false
+theme_override_fonts/font = ExtResource("3_7m1mg")
+theme_override_font_sizes/font_size = 90
+text = "-----"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExitButton" type="Button" parent="CenterContainer/Panel"]
+process_mode = 3
+layout_mode = 0
+offset_left = 47.0
+offset_top = 518.738
+offset_right = 208.0
+offset_bottom = 576.738
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.101961, 0.384314, 0.596078, 1)
+theme_override_fonts/font = SubResource("FontVariation_vdb2q")
+theme_override_font_sizes/font_size = 50
+text = "EXIT"
+flat = true
+
+[node name="GoButton" type="Button" parent="CenterContainer/Panel"]
+process_mode = 3
+layout_mode = 0
+offset_left = 704.0
+offset_top = 518.738
+offset_right = 865.0
+offset_bottom = 576.738
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.101961, 0.384314, 0.596078, 1)
+theme_override_fonts/font = SubResource("FontVariation_vdb2q")
+theme_override_font_sizes/font_size = 50
+text = "GO!"
+flat = true
+
+[node name="CheckButton" type="Button" parent="CenterContainer/Panel"]
+process_mode = 3
+layout_mode = 0
+offset_left = 628.0
+offset_top = 518.738
+offset_right = 848.0
+offset_bottom = 576.738
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.101961, 0.384314, 0.596078, 1)
+theme_override_fonts/font = SubResource("FontVariation_vdb2q")
+theme_override_font_sizes/font_size = 50
+text = "CHECK"
+flat = true
+
+[node name="Answer" type="LineEdit" parent="CenterContainer/Panel"]
+process_mode = 3
+layout_mode = 0
+offset_left = 330.0
+offset_top = 402.365
+offset_right = 542.0
+offset_bottom = 501.365
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/font_uneditable_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/caret_color = Color(0, 0, 0, 1)
+theme_override_colors/selection_color = Color(0, 0, 0, 1)
+theme_override_colors/clear_button_color = Color(0, 0, 0, 1)
+theme_override_colors/clear_button_color_pressed = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_hgwcc")
+theme_override_font_sizes/font_size = 90
+alignment = 2
+flat = true
+caret_blink = true
+
+[connection signal="pressed" from="CenterContainer/Panel/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="CenterContainer/Panel/GoButton" to="." method="_on_go_button_pressed"]
+[connection signal="pressed" from="CenterContainer/Panel/CheckButton" to="." method="_on_check_button_pressed"]

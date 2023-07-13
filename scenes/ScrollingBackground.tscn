@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwx40sdgpxij1"]
+
+[ext_resource type="Shader" path="res://shaders/ScrollingForeground.gdshader" id="1_414v8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d3neo"]
+resource_local_to_scene = true
+shader = ExtResource("1_414v8")
+shader_parameter/scroll_speed = 0.2
+
+[node name="ScrollingForeground" type="TextureRect"]
+material = SubResource("ShaderMaterial_d3neo")
+stretch_mode = 1

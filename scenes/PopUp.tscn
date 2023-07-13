@@ -1,0 +1,76 @@
+[gd_scene load_steps=8 format=3 uid="uid://khci51ay2u38"]
+
+[ext_resource type="Theme" uid="uid://bwqcjon1ao3yw" path="res://theme.tres" id="1_fewoh"]
+[ext_resource type="Script" path="res://scripts/PopUp.gd" id="1_u77n7"]
+[ext_resource type="Texture2D" uid="uid://bbhg4p0dyxp6y" path="res://assets/ui/popup_title.png" id="2_4k8s3"]
+[ext_resource type="FontFile" uid="uid://clgiboimi7lcs" path="res://assets/fonts/VCRosdNEUE.ttf" id="4_p1b1l"]
+[ext_resource type="FontFile" uid="uid://ddrd6bxrbodlk" path="res://assets/fonts/Mathis.otf" id="5_3g77i"]
+
+[sub_resource type="FontVariation" id="FontVariation_x2w3b"]
+base_font = ExtResource("4_p1b1l")
+
+[sub_resource type="FontVariation" id="FontVariation_quvbn"]
+base_font = ExtResource("5_3g77i")
+
+[node name="PopUp" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 568.0
+offset_top = 325.0
+offset_right = 568.0
+offset_bottom = 325.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u77n7")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="CenterContainer"]
+custom_minimum_size = Vector2(900, 600)
+layout_mode = 2
+theme = ExtResource("1_fewoh")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("2_4k8s3")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="CenterContainer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_x2w3b")
+theme_override_font_sizes/font_size = 24
+text = "Jump over enemies and collect as much coins as you can!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="CenterContainer/Panel/VBoxContainer"]
+process_mode = 3
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0901961, 0.0901961, 0.0901961, 1)
+theme_override_colors/font_hover_color = Color(0.101961, 0.384314, 0.596078, 1)
+theme_override_fonts/font = SubResource("FontVariation_quvbn")
+theme_override_font_sizes/font_size = 50
+text = "PLAY NOW"
+flat = true
+
+[connection signal="pressed" from="CenterContainer/Panel/VBoxContainer/Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://bwbagds0bh5qx"]
+
+[ext_resource type="PackedScene" uid="uid://bwx40sdgpxij1" path="res://scenes/ScrollingBackground.tscn" id="1_g64x8"]
+[ext_resource type="Shader" path="res://shaders/ScrollingForeground.gdshader" id="2_oyci3"]
+[ext_resource type="Texture2D" uid="uid://bn581yxv1u30i" path="res://assets/sprites/background/backgroundColorGrass.png" id="3_0500h"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_imtax"]
+resource_local_to_scene = true
+shader = ExtResource("2_oyci3")
+shader_parameter/scroll_speed = 0.02
+
+[node name="Background" type="Node2D"]
+
+[node name="ScrollingForeground" parent="." instance=ExtResource("1_g64x8")]
+material = SubResource("ShaderMaterial_imtax")
+offset_left = -4.0
+offset_top = -143.0
+offset_right = 1020.0
+offset_bottom = 881.0
+scale = Vector2(1.14, 0.9)
+texture = ExtResource("3_0500h")

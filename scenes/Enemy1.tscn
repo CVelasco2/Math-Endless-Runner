@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://cud0hb6ks8nr7"]
+
+[ext_resource type="Script" path="res://scripts/Enemy1.gd" id="1_gjeej"]
+[ext_resource type="Texture2D" uid="uid://xer76p3re8gf" path="res://assets/sprites/enemies/slimeBlue_hit.png" id="2_r4odi"]
+[ext_resource type="Texture2D" uid="uid://dljyvc6fcmx2d" path="res://assets/sprites/enemies/slimeBlue_dead.png" id="3_ocaee"]
+[ext_resource type="Texture2D" uid="uid://by7dkm1a41bqj" path="res://assets/sprites/enemies/slimeBlue.png" id="4_a8jrv"]
+[ext_resource type="Texture2D" uid="uid://bc3h32hefy8f5" path="res://assets/sprites/enemies/slimeBlue_blue.png" id="5_pgvv0"]
+[ext_resource type="PackedScene" uid="uid://c63o6yoea3c3x" path="res://scenes/Damage.tscn" id="6_lshsn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jw53f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_r4odi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ocaee")
+}],
+"loop": true,
+"name": &"Dead",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_a8jrv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_pgvv0")
+}],
+"loop": true,
+"name": &"Moving",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pg25y"]
+size = Vector2(48, 35)
+
+[node name="Enemy1" type="Node2D"]
+script = ExtResource("1_gjeej")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_jw53f")
+animation = &"Moving"
+frame_progress = 0.728324
+
+[node name="Damage" parent="." instance=ExtResource("6_lshsn")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Damage"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_pg25y")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="area_shape_entered" from="Damage" to="." method="_on_damage_area_shape_entered"]
+[connection signal="body_entered" from="Damage" to="." method="_on_damage_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
